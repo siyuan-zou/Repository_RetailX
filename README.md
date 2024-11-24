@@ -10,29 +10,45 @@ A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistan
 
 ## Usage
 
-1. Download the dataset [Amazon-Sales-Dataset-EDA-94](https://www.kaggle.com/code/sonawanelalitsunil/amazon-sales-dataset-eda-94/notebook) and copy it to folder Data.
+0. Create a conda or python venv
 
-2. Create a file named "env.py" and add the following items:
+```bash
+conda create -n retailx python=3.10.15
+
+conda activate retailx
+```
+
+1. Install the dependencies from `requirements.txt`
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Download the dataset [Amazon-Sales-Dataset-EDA-94](https://www.kaggle.com/code/sonawanelalitsunil/amazon-sales-dataset-eda-94/input) and copy it to the root folder of the project.
+
+3. Create a file named "env.py" and add the following items:
 
 ```python
 file_path = 'amazon.csv'  # by default
 api_key = "your_mistral_AI_API_key"
 history_file_path = 'history.txt' # by default
 
-pricer_path = 'Personalities/personality_pricer.txt'
+pricer_path = 'Personalities/personality_pricer.txt' 
 discounter_path = 'Personalities/personality_discounter.txt'
 rater_path = 'Personalities/personality_rater.txt'
 salesperson_path = 'Personalities/salesperson.txt'
 keyword_extractor_path = 'Personalities/keyword.txt'
+
 ```
 
-3. Install the dependencies from `requirements.txt`
+**ATTENTION: Tested Python version: `3.10.15`**
 
-Tested Python version: `3.10.15`
+4. Execute in the system terminal `gradio app.py`, then a link directing to the agent appears in the terminal.
 
-4. Execute in the system terminal `gradio app.py`
+The default link is http://127.0.0.1:7860
 
-Note: Data Preparation may take 30s to 1min.
+Note: Initial Data Preparation may take 30s to 1min.
+
 
 ## File Description
 
@@ -40,12 +56,13 @@ Frontend
 
 - `app.py`: The main application file that runs the Gradio interface.
 - `style.css`: Contains custom CSS styles for the Gradio interface.
-- `api_frontend.py`: 
+- `api_frontend.py`: The Interface to interact with the backend.
 
 Backend
 
 - `api_backend.py`: API for the frontend provided by the backend, also the local test code for backend.
 - `functions.py`: Functions implementing LLM calls.
+- `embed.py`: Functions calculating the objects' embeddings
 
 Data
 
@@ -56,15 +73,17 @@ Miscellaneous
 
 - `requirements.txt`: Lists all the dependencies required to run the project.
 - `README.md`: This file, providing an overview and instructions for the project.
-- `mock_request.py`: mock data for the frontend
-- `history.txt`: A file to store the history of processed data or interactions. Used when testing backend
+- `mock_request.py`: mock data for the frontend.
+- `history.txt`: A file to store the history of processed data or interactions. Used when testing backend.
 
 ## Technical Details
+
 ### Front-End  
 
 The frontend is powered by the framework `gradio`. The backend is a simplified synchronous implementation of the system. Instead of leveraging asynchronous programming for handling concurrent requests or external API calls, it processes all incoming requests in a blocking manner.   
 
 ### Back-End  
+
 The backend workflow chart looks like this:  
 <img src="Demo/chart.png" alt="2" style="zoom: 33%;" />
 
@@ -76,14 +95,14 @@ The suggestionner suggests (based on most relevant items) some items in another 
 
 The actual object-matching is done by local transformer models, by comparing text embeddings.  
 
-Cross-sales is done by randomly picking marchandizes from the categories that appear among the most-relevant articles.  
+Cross-sales is done by randomly picking marchandises from the categories that appear among the most-relevant articles.  
 
 ## Model Evaluation
 
 Mistral AI LLMs generally perform quite well on the given tasks;  
 Rare hallucinations are observed, even with Large, but detectable and fixable by asking LLM to re-run.
 
-Our chatbot is capable of treating common marchandize search requests, and can raise pertinent questions to narrow down.  
+Our chatbot is capable of treating common merchandies search requests, and can raise pertinent questions to narrow down.  
 The suggestion engine successfully proposes the most relevant items, in a user-friendly way.  
 
 ## Future possibilities  

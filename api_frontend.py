@@ -1,6 +1,7 @@
 import re
 from api_backend import send_backend_response as get_backend_response
 
+
 def clear_chat_history(chat_history):
     """
     Restart the communication history for new user/recommendations
@@ -26,7 +27,8 @@ async def frontend_request(message, chat_history):
     print('-' * 80)
     print('CLEARED CHAT HISTORY: ', chat_history)
     print('-' * 80)
-    bot_message, recommendations = get_backend_response(message, chat_history)
+    bot_message, recommendations, maybeyoulike = get_backend_response(
+        message, chat_history)
     print('BOT MESSAGE:', bot_message)
     print('RECOMMENDATIONS', [rec['name'] for rec in recommendations])
-    return bot_message, recommendations
+    return bot_message, recommendations, maybeyoulike
