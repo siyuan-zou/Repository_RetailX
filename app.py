@@ -1,5 +1,6 @@
 import gradio as gr
-from api_frontend import frontend_request
+# from api_frontend import frontend_request
+from mock_request import request_and_generate_data as frontend_request
 
 # Styling
 with open("style.css", "r") as file:
@@ -64,7 +65,7 @@ def update_chat_recommendations(recommendations, maybeyoulike):
         + "</ul>"
     )
     maybeyoulike_content = ""
-    if maybeyoulike.strip():
+    if len(maybeyoulike) != 0:
         maybeyoulike_content = (
             "<div class='maybeyoulike-header'>Maybe you like:</div>"
             + "<ul class='chat-recommendations'>"
