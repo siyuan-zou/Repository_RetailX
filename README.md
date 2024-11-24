@@ -4,7 +4,7 @@ A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistan
 
 ## Demo
 
-<img src="demo/2.png" alt="2" style="zoom: 33%;" />
+<img src="Demo/2.png" alt="2" style="zoom: 33%;" />
 
 
 
@@ -60,7 +60,7 @@ The frontend is powered by the framework `gradio`. The backend is a simplified s
 
 ### Back-End  
 The backend workflow chart looks like this:  
-<img src="demo/chart.png" alt="2" style="zoom: 33%;" />
+<img src="Demo/chart.png" alt="2" style="zoom: 33%;" />
 
 We use 5 Mistral AI LLM personalities:
 The historian extracts a one-phrase description of the user's demand from chat history;  
@@ -83,5 +83,3 @@ The suggestion engine successfully proposes the most relevant items, in a user-f
 
 An unsuccessful but potentially promising idea is to train a LLM coder to write and auto-execute SQL-like code snippets that can operate autonomously on the database;  
 This can allow for more versatile question-answering capabilities related to the database.  
-
-
