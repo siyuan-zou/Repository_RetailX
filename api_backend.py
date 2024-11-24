@@ -54,8 +54,9 @@ def send_backend_response(message, chat_history):
     # generate response to frontend
     bot_message = response(search_result["description"], chat_history)
     recommendations = generate_recommendations(search_result[:min(3, len(search_result))])
+    cross_sells = generate_recommendations(cross_sells_recommendation(search_result[:min(len(search_result), 20)], dataset))
 
-    return bot_message, recommendations
+    return bot_message, recommendations, cross_sells
 
 
 def main():
@@ -102,6 +103,10 @@ def main():
         with open('history.txt', 'w') as file:
             file.write(history)
         print("History updated!")
+
+        print('I also recommend this object:')
+        print(cross_sells_recommendation(search_result[:min(len(search_result), 20)], dataset))
+        print("recommendation done")
 
         # get the user input
         user_input = input(salesperson_response)

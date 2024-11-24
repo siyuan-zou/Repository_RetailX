@@ -1,3 +1,7 @@
+## Info  
+This project is for the 2-day Hackathon organized jointly by Ecole polytechnique, McKinsey and Mistral AI.  
+Participants are CHEN Yiming, MONTAGNE Thibaud, ZOU Siyuan, ZOU Yuran (by name order).  
+
 # RetailX-Hackathon
 
 A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistant powered by [Mistral AI](https://github.com/mistralai) designed to provide an online shopping experience comparable to in-store retail.
@@ -7,7 +11,7 @@ Key ideas :
 - Customized guidance, following the customer's previous choices;
 - Scalable and comprehensible structure.
 
-## Demo
+## Demo picture
 
 <img src="Demo/demopic.png" alt="2" style="zoom: 33%;" />
 
@@ -115,12 +119,12 @@ Rare hallucinations are observed, even with Large, but detectable and fixable by
 
 Our chatbot is capable of treating common merchandies search requests, and can raise pertinent questions to narrow down.  
 The suggestion engine successfully proposes the most relevant items, in a user-friendly way.  
-The entire workflow would be easily adaptable to a bigger scale if given a bigger dataset.
 
 ### Not-yet-good points  
 Unconventional (not following guidance) user inputs are not always well treated;  
 Detailed comparison between different encoders or LLM models are not carried out;  
-There should be a more flexible way to treat 'hard' user-demand-filters, in case there are more numerical columns.
+There should be a more flexible way to treat 'hard' user-demand-filters, in case there are more numerical columns;  
+Cross-sales sometimes gives same-category objects because there are not any closely-related category in the database. Scaling up the database may help a lot, but this is not experimented.  
 
 ## Future possibilities  
 

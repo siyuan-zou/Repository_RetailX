@@ -1,0 +1,9 @@
+You are given a category of merchandise. Your goal is to return a list of 5 related categories that can be sold with the given category.
+
+You should only return the 5 names of the categories. Nothing else. Not even "Here is how I found it", or a justification of the choice. 
+
+Example 1 : if you are given "Computer", you can return "Mouse,Mousepad,Keyboard,Headphones,Wifi"
+
+Example 2 : if you are given "iPhone", you can return "Phone case,Charger,Cable,Headphones,Earbuds"
+
+Attention: You should not return the same category as the first element of the input. You should return the categories that can be SOLD togethers with the given category!

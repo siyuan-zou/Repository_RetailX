@@ -1,6 +1,7 @@
 from env import *
 from mistralai import Mistral
 import pandas as pd
+import numpy as np
 import os
 
 import torch
@@ -23,6 +24,8 @@ with open(salesperson_path, 'r') as f:
     salesperson = f.read()
 with open(keyword_extractor_path, 'r') as f:
     keyword_extractor = f.read()
+with open(conselor_path, 'r') as f:
+    counselor = f.read()
 
 if not os.path.exists(history_file_path):
     history = ''
@@ -246,3 +249,63 @@ def response(dataset, theme):
     response = single_chat(message, salesperson, model_l)
 
     return response
+
+def cross_sells_recommendation(objects, dataset):
+    """
+    objects : a dataset of the most relevant products that the user is interested in
+    dataset : the dataset to recommend from
+
+    output : products different from the ones the user is interested in that are recommended
+    """
+    print("Starting recommendation function")
+
+    # find the most dominant category in the objects list
+    dominant_category = objects['category'].apply(lambda x: " ".join(x.split('|')[-2:])).mode()[0]
+    print(f"Dominant category: {dominant_category}")
+
+    # get the last part of each category in the dataset
+    categories = dataset['category'].apply(lambda x: " ".join(x.split('|')[-2:])).tolist()
+    index_to_exclude = categories.index(dominant_category)
+    print(f"Index to exclude: {index_to_exclude}")
+    print(f"Excluded category: {categories[index_to_exclude]}")
+
+    # find the categories closest to the dominant category using the counselor LLM
+    message = str(dominant_category)
+    print(f"LLM now starts")
+    similar_category = single_chat(message, counselor, model_l)
+    similar_category = similar_category.split(',')
+    print(f"LLM done : Similar categories: {similar_category}")
+
+    product_embeddings = torch.load('embeddings/category_embeddings.pt')
+    print(f"Type of product_embeddings: {type(product_embeddings)}")
+    print(f"Product embeddings shape: {product_embeddings.shape}")
+
+    product_embeddings_excluded = np.concatenate((product_embeddings[:index_to_exclude], product_embeddings[index_to_exclude + 1:]), axis=0)
+
+
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+    category_embeddings = [model.encode(i) for i in similar_category]
+    # Calculate cosine similarity between the query and each product's combined text
+    B = [(category_embeddings[i]) for i in range(len(category_embeddings))]
+    similarities = cosine_similarity(product_embeddings_excluded, B)
+
+    # Sort by similarity and return the top 5 most relevant product
+    most_similar_index = similarities.argmax(axis=0).flatten()[0]
+    most_similar_category_embedding = product_embeddings_excluded[most_similar_index]
+
+    # get the products in the recommended category
+    recommended_products = dataset.iloc[
+    [i for i, embedding in enumerate(product_embeddings) if np.array_equal(embedding, most_similar_category_embedding)]]
+
+    # remove the products that the user is interested in
+    recommended_products = recommended_products[~recommended_products.index.isin(objects.index)]
+
+    # Check if recommended_products is empty
+    if recommended_products.empty:
+        print("No recommended products found")
+        return None
+
+    # return a random object among the recommended products
+    random_product = recommended_products.sample(1)
+    print(f"Random recommended product: {random_product}")
+    return random_product
