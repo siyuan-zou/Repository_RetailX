@@ -1,3 +1,7 @@
+## Info  
+This project is for the 2-day Hackathon organized jointly by Ecole polytechnique, McKinsey and Mistral AI.  
+Participants are CHEN Yiming, MONTAGNE Thibaud, ZOU Siyuan, ZOU Yuran (by name order).  
+
 # RetailX-Hackathon
 
 A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistant powered by [Mistral AI](https://github.com/mistralai) designed to provide an online shopping experience comparable to in-store retail.
@@ -7,7 +11,7 @@ Key ideas :
 - Customized guidance, following the customer's previous choices;
 - Scalable and comprehensible structure.
 
-## Demo
+## Demo picture
 
 <img src="Demo/demopic.png" alt="2" style="zoom: 33%;" />
 
