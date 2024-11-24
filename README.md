@@ -47,6 +47,7 @@ discounter_path = 'Personalities/personality_discounter.txt'
 rater_path = 'Personalities/personality_rater.txt'
 salesperson_path = 'Personalities/salesperson.txt'
 keyword_extractor_path = 'Personalities/keyword.txt'
+conselor_path='Personalities/conselor.txt'
 
 ```
 
