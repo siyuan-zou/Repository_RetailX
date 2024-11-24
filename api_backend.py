@@ -55,7 +55,7 @@ def send_backend_response(message, chat_history):
     bot_message = response(search_result["description"], chat_history)
     recommendations = generate_recommendations(search_result[:min(3, len(search_result))])
 
-    if chat_history.count('\n') > 10:
+    if chat_history.count('user:') > 5:
         cross_sells = generate_recommendations(cross_sells_recommendation(search_result[:min(len(search_result), 3)], dataset))
     else:
         cross_sells = []
