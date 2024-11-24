@@ -66,8 +66,9 @@ Miscellaneous
 The frontend is powered by the framework `gradio`. The backend is a simplified synchronous implementation of the system. Instead of leveraging asynchronous programming for handling concurrent requests or external API calls, it processes all incoming requests in a blocking manner.   
 
 ### Back-End  
-The backend workflow chart looks like this:  
-<img src="Demo/chart.png" alt="2" style="zoom: 33%;" />
+The backend workflow chart looks like this: 
+
+<img src="Demo/chart.png" alt="2" style="zoom: 25%;" />
 
 
 We use multiple Mistral AI LLM personalities:  
