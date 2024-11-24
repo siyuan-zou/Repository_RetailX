@@ -77,6 +77,7 @@ The suggestionner suggests (based on most relevant items) some items in another 
 The actual object-matching is done by local transformer models, by comparing text embeddings.  
 
 Cross-sales is done by randomly picking marchandizes from the categories that appear among the most-relevant articles.  
+We have hard-filter identification mechanisms on numerical features(price,discount rate,rating) and this is easily scalable if there is more similar features.  
 
 ## Model Evaluation
 
