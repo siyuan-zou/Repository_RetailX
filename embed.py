@@ -52,6 +52,12 @@ def main():
     # Generate embeddings for the product descriptions
     try_embed(dataset["description_and_comments"].tolist(),
               'product_embeddings', model)
+    
+    # Generate embeddings for the product categories
+    categories = dataset['category'].apply(lambda x: " ".join(x.split('|')[-2:])).tolist()
+
+    try_embed(categories,
+               'category_embeddings', model)
 
 if __name__ == "__main__":
     main()
