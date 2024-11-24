@@ -62,7 +62,7 @@ The frontend is powered by the framework `gradio`. The backend is a simplified s
 The backend workflow chart looks like this:  
 <img src="demo/chart.png" alt="2" style="zoom: 33%;" />
 
-We use 5 Mistral AI LLM personalities:
+We use 5 Mistral AI LLM personalities:  
 The historian extracts a one-phrase description of the user's demand from chat history;  
 The price/discount/rating filterer extracts any "hard" criteria on those numerical columns, if applicable;  
 The salesperson generates (based on previous conversations and relevant objects) a pertinent follow-up question to help narrow down.  
@@ -84,4 +84,5 @@ The suggestion engine successfully proposes the most relevant items, in a user-f
 An unsuccessful but potentially promising idea is to train a LLM coder to write and auto-execute SQL-like code snippets that can operate autonomously on the database;  
 This can allow for more versatile question-answering capabilities related to the database.  
 
+A Graph Neural Network that defines item similarity might be able to give more precise cross-sales suggestions.
 
