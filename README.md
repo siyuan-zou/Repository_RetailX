@@ -62,10 +62,11 @@ The frontend is powered by the framework `gradio`. The backend is a simplified s
 The backend workflow chart looks like this:  
 <img src="demo/chart.png" alt="2" style="zoom: 33%;" />
 
-We use 5 Mistral AI LLM personalities:  
+We use multiple Mistral AI LLM personalities:  
 The historian extracts a one-phrase description of the user's demand from chat history;  
 The price/discount/rating filterer extracts any "hard" criteria on those numerical columns, if applicable;  
 The salesperson generates (based on previous conversations and relevant objects) a pertinent follow-up question to help narrow down.  
+The suggestionner suggests (based on most relevant items) some items in another category as possible cross-sales.
 
 The actual object-matching is done by local transformer models, by comparing text embeddings.  
 
