@@ -2,6 +2,11 @@
 
 A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistant powered by [Mistral AI](https://github.com/mistralai) designed to provide an online shopping experience comparable to in-store retail.
 
+Key ideas :  
+- User-friendly, natural, visible shopping experience;
+- Customized guidance, following the customer's previous choices;
+- Scalable and comprehensible structure.
+
 ## Demo
 
 <img src="Demo/demopic.png" alt="2" style="zoom: 33%;" />
