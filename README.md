@@ -2,9 +2,14 @@
 
 A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistant powered by [Mistral AI](https://github.com/mistralai) designed to provide an online shopping experience comparable to in-store retail.
 
+Key ideas :  
+- User-friendly, natural, visible shopping experience;
+- Customized guidance, following the customer's previous choices;
+- Scalable and comprehensible structure.
+
 ## Demo
 
-<img src="Demo/2.png" alt="2" style="zoom: 33%;" />
+<img src="Demo/demopic.png" alt="2" style="zoom: 33%;" />
 
 
 
@@ -29,7 +34,7 @@ pip install -r requirements.txt
 3. Create a file named "env.py" and add the following items:
 
 ```python
-file_path = 'amazon.csv'  # by default
+file_path = 'Data/amazon.csv'  # by default
 api_key = "your_mistral_AI_API_key"
 history_file_path = 'history.txt' # by default
 
@@ -63,6 +68,8 @@ Backend
 - `api_backend.py`: API for the frontend provided by the backend, also the local test code for backend.
 - `functions.py`: Functions implementing LLM calls.
 - `embed.py`: Functions calculating the objects' embeddings
+- `api_backend.py`: API for the frontend provided by the backend, also the local test code for backend. Contains the main workflow of Backend.  
+- `functions.py`: Auxialiary Functions, implementing embedding comparisons and LLM calls.  
 
 Data
 
@@ -73,8 +80,9 @@ Miscellaneous
 
 - `requirements.txt`: Lists all the dependencies required to run the project.
 - `README.md`: This file, providing an overview and instructions for the project.
-- `mock_request.py`: mock data for the frontend.
-- `history.txt`: A file to store the history of processed data or interactions. Used when testing backend.
+- `mock_request.py`: mock data for the frontend.  
+- `history.txt`: A file to store the history of processed data or interactions. Used when testing backend.  
+- `Personalities`: containing System Prompts of all LLM's used in the project.
 
 ## Technical Details
 
@@ -83,9 +91,10 @@ Miscellaneous
 The frontend is powered by the framework `gradio`. The backend is a simplified synchronous implementation of the system. Instead of leveraging asynchronous programming for handling concurrent requests or external API calls, it processes all incoming requests in a blocking manner.   
 
 ### Back-End  
+The backend workflow chart looks like this: 
 
-The backend workflow chart looks like this:  
-<img src="Demo/chart.png" alt="2" style="zoom: 33%;" />
+<img src="Demo/chart.png" alt="2" style="zoom: 25%;" />
+
 
 We use multiple Mistral AI LLM personalities:  
 The historian extracts a one-phrase description of the user's demand from chat history;  
@@ -95,20 +104,28 @@ The suggestionner suggests (based on most relevant items) some items in another 
 
 The actual object-matching is done by local transformer models, by comparing text embeddings.  
 
-Cross-sales is done by randomly picking marchandises from the categories that appear among the most-relevant articles.  
+Cross-sales is done by randomly picking marchandizes from the categories that appear among the most-relevant articles.  
+We have hard-filter identification mechanisms on numerical features(price,discount rate,rating) and this is easily scalable if there is more similar features.  
 
 ## Model Evaluation
 
+### Good points  
 Mistral AI LLMs generally perform quite well on the given tasks;  
 Rare hallucinations are observed, even with Large, but detectable and fixable by asking LLM to re-run.
 
 Our chatbot is capable of treating common merchandies search requests, and can raise pertinent questions to narrow down.  
 The suggestion engine successfully proposes the most relevant items, in a user-friendly way.  
+The entire workflow would be easily adaptable to a bigger scale if given a bigger dataset.
+
+### Not-yet-good points  
+Unconventional (not following guidance) user inputs are not always well treated;  
+Detailed comparison between different encoders or LLM models are not carried out;  
+There should be a more flexible way to treat 'hard' user-demand-filters, in case there are more numerical columns.
 
 ## Future possibilities  
 
-An unsuccessful but potentially promising idea is to train a LLM coder to write and auto-execute SQL-like code snippets that can operate autonomously on the database;  
+A (not implemented but) potentially promising idea is to train a LLM coder to write and auto-execute code snippets that can operate autonomously on the database;  
 This can allow for more versatile question-answering capabilities related to the database.  
 
-A Graph Neural Network that defines item similarity might be able to give more precise cross-sales suggestions.
+A Graph Neural Network that defines item similarity might be able to give more logical cross-sales suggestions.
 
