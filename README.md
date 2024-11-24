@@ -47,6 +47,7 @@ discounter_path = 'Personalities/personality_discounter.txt'
 rater_path = 'Personalities/personality_rater.txt'
 salesperson_path = 'Personalities/salesperson.txt'
 keyword_extractor_path = 'Personalities/keyword.txt'
+conselor_path='Personalities/conselor.txt'
 
 ```
 
@@ -124,8 +125,8 @@ The suggestion engine successfully proposes the most relevant items, in a user-f
 Unconventional (not following guidance) user inputs are not always well treated;  
 Detailed comparison between different encoders or LLM models are not carried out;  
 There should be a more flexible way to treat 'hard' user-demand-filters, in case there are more numerical columns;  
-Cross-sales sometimes gives same-category objects because there are not any closely-related category in the database. Scaling up the database may help a lot, but this is not experimented.  
-
+Cross-sales sometimes gives same-category objects because there are not any closely-related category in the database. Scaling up the database may help a lot, but this is not experimented. 
+If we want in the same time top items AND cross-sales, the reaction time is too long. (Too many LLM requests to do).   
 ## Future possibilities  
 
 A (not implemented but) potentially promising idea is to train a LLM coder to write and auto-execute code snippets that can operate autonomously on the database;  
