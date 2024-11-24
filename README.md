@@ -10,7 +10,7 @@ A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistan
 
 ## Usage
 
-1. Download the dataset [Amazon-Sales-Dataset-EDA-94](https://www.kaggle.com/code/sonawanelalitsunil/amazon-sales-dataset-eda-94/notebook) and copy it to the root path
+1. Download the dataset [Amazon-Sales-Dataset-EDA-94](https://www.kaggle.com/code/sonawanelalitsunil/amazon-sales-dataset-eda-94/notebook) and copy it to folder Data.
 
 2. Create a file named "env.py" and add the following items:
 
