@@ -124,7 +124,8 @@ The entire workflow would be easily adaptable to a bigger scale if given a bigge
 ### Not-yet-good points  
 Unconventional (not following guidance) user inputs are not always well treated;  
 Detailed comparison between different encoders or LLM models are not carried out;  
-There should be a more flexible way to treat 'hard' user-demand-filters, in case there are more numerical columns.
+There should be a more flexible way to treat 'hard' user-demand-filters, in case there are more numerical columns;  
+Cross-sales sometimes gives same-category objects because there are not any closely-related category in the database. Scaling up the database may help, but this is not experimented.  
 
 ## Future possibilities  
 
