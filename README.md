@@ -15,7 +15,7 @@ A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistan
 2. Create a file named "env.py" and add the following items:
 
 ```python
-file_path = 'amazon.csv'  # by default
+file_path = 'Data/amazon.csv'  # by default
 api_key = "your_mistral_AI_API_key"
 history_file_path = 'history.txt' # by default
 
@@ -44,8 +44,8 @@ Frontend
 
 Backend
 
-- `api_backend.py`: API for the frontend provided by the backend, also the local test code for backend.
-- `functions.py`: Functions implementing LLM calls.
+- `api_backend.py`: API for the frontend provided by the backend, also the local test code for backend. Contains the main workflow of Backend.  
+- `functions.py`: Auxialiary Functions, implementing embedding comparisons and LLM calls.  
 
 Data
 
@@ -56,8 +56,9 @@ Miscellaneous
 
 - `requirements.txt`: Lists all the dependencies required to run the project.
 - `README.md`: This file, providing an overview and instructions for the project.
-- `mock_request.py`: mock data for the frontend
-- `history.txt`: A file to store the history of processed data or interactions. Used when testing backend
+- `mock_request.py`: mock data for the frontend.  
+- `history.txt`: A file to store the history of processed data or interactions. Used when testing backend.  
+- `Personalities`: containing System Prompts of all LLM's used in the project.
 
 ## Technical Details
 ### Front-End  
@@ -89,8 +90,8 @@ The suggestion engine successfully proposes the most relevant items, in a user-f
 
 ## Future possibilities  
 
-An unsuccessful but potentially promising idea is to train a LLM coder to write and auto-execute SQL-like code snippets that can operate autonomously on the database;  
+An (not implemented but) potentially promising idea is to train a LLM coder to write and auto-execute code snippets that can operate autonomously on the database;  
 This can allow for more versatile question-answering capabilities related to the database.  
 
-A Graph Neural Network that defines item similarity might be able to give more precise cross-sales suggestions.
+A Graph Neural Network that defines item similarity might be able to give more logical cross-sales suggestions.
 
