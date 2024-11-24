@@ -4,7 +4,7 @@ A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistan
 
 ## Demo
 
-<img src="Demo/2.png" alt="2" style="zoom: 33%;" />
+<img src="Demo/demopic.png" alt="2" style="zoom: 33%;" />
 
 
 
