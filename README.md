@@ -40,23 +40,23 @@ Frontend
 
 - `app.py`: The main application file that runs the Gradio interface.
 - `style.css`: Contains custom CSS styles for the Gradio interface.
+- `api_frontend.py`: 
 
 Backend
 
-- `backend_request.py`: API for the frontend provided by the backend.
+- `api_backend.py`: API for the frontend provided by the backend, also the local test code for backend.
 - `functions.py`: Functions implementing LLM calls.
 
 Data
 
 - `env.py`: Contains environment variables such as file paths and API keys.
-- `amazon.csv`: The dataset file containing Amazon sales data.
+- `/Data/amazon.csv`: The dataset file containing Amazon sales data.
 
 Miscellaneous
 
 - `requirements.txt`: Lists all the dependencies required to run the project.
 - `README.md`: This file, providing an overview and instructions for the project.
 - `mock_request.py`: mock data for the frontend
-- `backend.py`: test session for the backend
 - `history.txt`: A file to store the history of processed data or interactions. Used when testing backend
 
 ## Technical Details

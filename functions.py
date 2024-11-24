@@ -7,7 +7,6 @@ import torch
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
 # Initialize the Mistral API
 client = Mistral(api_key=api_key)
 model_s = "mistral-small-latest"
