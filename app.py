@@ -67,7 +67,7 @@ def update_chat_recommendations(recommendations, maybeyoulike):
     maybeyoulike_content = ""
     if len(maybeyoulike) != 0:
         maybeyoulike_content = (
-            "<div class='maybeyoulike-header'>Maybe you like:</div>"
+            "<div class='maybeyoulike-header'><strong>Maybe you like:</strong></div>"
             + "<ul class='chat-recommendations'>"
             + "".join(
                 f"<li><a href='{item['link']}' target='_blank' class='chat-recommendation'>{cut_text(item['name'], max_length=40)}</a></li>"
