@@ -69,6 +69,7 @@ The frontend is powered by the framework `gradio`. The backend is a simplified s
 The backend workflow chart looks like this:  
 <img src="Demo/chart.png" alt="2" style="zoom: 33%;" />
 
+
 We use multiple Mistral AI LLM personalities:  
 The historian extracts a one-phrase description of the user's demand from chat history;  
 The price/discount/rating filterer extracts any "hard" criteria on those numerical columns, if applicable;  
