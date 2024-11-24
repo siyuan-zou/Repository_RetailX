@@ -89,15 +89,22 @@ We have hard-filter identification mechanisms on numerical features(price,discou
 
 ## Model Evaluation
 
+### Good points  
 Mistral AI LLMs generally perform quite well on the given tasks;  
 Rare hallucinations are observed, even with Large, but detectable and fixable by asking LLM to re-run.
 
 Our chatbot is capable of treating common marchandize search requests, and can raise pertinent questions to narrow down.  
 The suggestion engine successfully proposes the most relevant items, in a user-friendly way.  
+The entire workflow would be easily adaptable to a bigger scale if given a bigger dataset.
+
+### Not-yet-good points  
+Unconventional (not following guidance) user inputs are not always well treated;  
+Detailed comparison between different encoders or LLM models are not carried out;  
+There should be a more flexible way to treat 'hard' user-demand-filters, in case there are more numerical columns.
 
 ## Future possibilities  
 
-An (not implemented but) potentially promising idea is to train a LLM coder to write and auto-execute code snippets that can operate autonomously on the database;  
+A (not implemented but) potentially promising idea is to train a LLM coder to write and auto-execute code snippets that can operate autonomously on the database;  
 This can allow for more versatile question-answering capabilities related to the database.  
 
 A Graph Neural Network that defines item similarity might be able to give more logical cross-sales suggestions.
