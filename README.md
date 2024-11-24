@@ -18,6 +18,12 @@ A MVP (Minimum Viable Product) Prototype of RetailX,  an intelligent AI assistan
 file_path = 'amazon.csv'  # by default
 api_key = "your_mistral_AI_API_key"
 history_file_path = 'history.txt' # by default
+
+pricer_path = 'Personalities/personality_pricer.txt'
+discounter_path = 'Personalities/personality_discounter.txt'
+rater_path = 'Personalities/personality_rater.txt'
+salesperson_path = 'Personalities/salesperson.txt'
+keyword_extractor_path = 'Personalities/keyword.txt'
 ```
 
 3. Install the dependencies from `requirements.txt`
